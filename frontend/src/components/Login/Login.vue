@@ -1,3 +1,5 @@
+
+
 <script>
 
 import VueMetamask from 'vue-metamask';
