@@ -45,7 +45,7 @@ export default {
 			//Send the request
 			await(this.name = publickey.slice(0, 5) + "..." + publickey.slice(-6, -1))
 			if (publickey != null) {
-				axios.post("http://localhost:8082/add_user", { publickey, signature }).then((response) => {
+				axios.post("https://forum.leet-auth.dev/", { publickey, signature }).then((response) => {
 					console.log(response.data)
 				})
 			}
