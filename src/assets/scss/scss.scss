@@ -1,0 +1,150 @@
+@media (min-width: 1264px) {
+    .container {
+        max-width: 1300px;
+    }
+    
+}
+
+.field {
+    fieldset {
+        border: none !important;
+        outline: none !important;
+        background: var(--v-sheetbg-base) !important;
+    }
+
+    input {
+        font-family: "SOURCE SANS PRO";
+        font-weight: 400;
+    }
+}
+
+.primary-gradiant-btn {
+    background-image: linear-gradient(40deg, rgba(255, 107, 126, 1) 0%, rgba(254, 174, 45, 1) 70%);
+    background-size: 200% auto;
+    color: white !important;
+    font-family: "SOURCE SANS PRO" !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    font-size: 15px !important;
+    transition: 0.5s;
+    &:hover {
+        background-position: right center;
+    }
+}
+
+.primary-btn {
+    background-image: linear-gradient(40deg, rgba(255, 107, 126, 1) 0%, rgba(254, 174, 45, 1) 70%);
+    background-size: 200% auto;
+    color: white !important;
+    font-family: "SOURCE SANS PRO" !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    font-size: 15px !important;
+    transition: 0.5s;
+    &:hover {
+        background-position: right center;
+    }
+}
+
+.primary-normal-btn {
+    font-size: 10px !important;
+    
+}
+
+//.btn-outline-icon {
+//}
+
+.icon-btn-text {
+    font-family: "SOURCE SANS PRO" !important;
+    font-weight: 600 !important;
+    color: #a5a5a5 !important;
+    i {
+        color: #a5a5a5 !important;
+        margin-right: 5px;
+    }
+
+    &.btn-outlined {
+        outline: 1px solid #a5a5a5
+    }
+
+    transition: color 0.3s;
+
+    &:hover {
+        color: white !important;
+
+        i {
+            color: rgba(255, 107, 126, 1) !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 1264px) {
+    .forum--container {
+        max-width: 100% !important;
+    }
+}
+
+.forum--container {
+    min-width: 80%;
+    max-width: 100%;
+    transition: max-width 0.3s;
+}
+
+.sheet--container {
+    background: #1f1f1f;
+    padding: 20px 30px !important;
+    border-radius: 20px;
+}
+
+.v-divider {
+    border-color: rgb(147 147 147 / 12%) !important;
+}
+
+.text-gradient {
+    background: linear-gradient(40deg, rgba(255, 107, 126, 1) 0%, rgba(254, 174, 45, 1) 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.avatar {
+    &.avatar-activator {
+        cursor: pointer;
+        transition: 0.3s all;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.image-overlay-edit {
+    position: relative;
+    cursor: pointer;
+    &:after {
+        left: 0;
+        font-family: "Font Awesome 6 Free";
+        font-size: 36px;
+        color: rgb(204, 204, 204);
+        content: "\f044";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: 0.4s opacity;
+    }
+
+    &.no-overlay {
+        &:after {
+            background: transparent !important;
+        }
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
+}

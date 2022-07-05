@@ -1,0 +1,151 @@
+.flex-grow-3 {
+    flex-grow: 3 !important;
+}
+
+.flex-grow-2 {
+    flex-grow: 2 !important;
+}
+
+.text-h7 {
+    font-size: 1.15rem !important;
+    font-weight:600;
+}
+
+.text-h8 {
+    font-size: 1rem !important;
+    font-weight:600;
+}
+
+
+.text-h9 {
+    font-size: 0.95rem !important;
+    font-weight:600;
+}
+
+.v-chip__content {
+    font-weight:500;
+    font-family: "Source Sans Pro";
+}
+
+span[class^='text-'] {
+    font-family: "Source Sans Pro";
+}
+
+.headingColorText {
+    color: #dbdbdb !important;
+}
+
+.link,
+a {
+    cursor: pointer;
+    color: #dbdbdb !important;
+    transition: 0.3s color;
+
+    &:hover {
+        color: white !important;
+    }
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.vmenu-list {
+    padding: 0 !important;
+    border-radius: 5px !important;
+}
+
+.vmenu-content {
+    font-family: "Source Sans Pro";
+    font-weight: 500;
+    min-width: 220px;
+
+    .vmenu-item {
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transition: 0.3s color;
+        cursor: pointer;
+
+        i {
+            min-width: 20px;
+        }
+
+        &.vmenu-item-button {
+            padding: 0 !important;
+
+            button {
+                padding: 10px 15px;
+                border-radius: none !important;
+            }
+        }
+
+        &:hover {
+            background: var(--v-sheetbg-base) !important;
+        }
+
+        span {
+            font-size: 15px;
+            color: #acacac;
+        }
+    }
+}
+
+.v-breadcrumbs {
+    .crumb-item:not(:last-of-type) {
+        a {
+            transition: 0.3s all;
+            color: rgb(119, 119, 119) !important;
+            font-weight: 400;
+
+            &:hover {
+                color: #acacac !important;
+            }
+        }
+    }
+
+    .crumb-item {
+        text-transform: uppercase;
+        font-family: Source Sans Pro;
+    }
+
+    .crumb-item:last-of-type {
+        color: #acacac;
+    }
+}
+
+.notransform {
+    text-transform: none !important;
+}
+
+.icon-dark {
+    color: #8f8f8f !important;
+}
+
+.text-icon-group {
+    display:flex;
+    align-items:center;
+}
+
+.text-dark {
+    font-family: "Source Sans Pro";
+    font-weight: 400;
+    color: #8f8f8f;
+    font-size: 15px;
+    font-weight: 400;
+
+    &.--small {
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+    &.--large {
+        font-size: 17px;
+        font-weight: 400;
+    }
+}
+
+.v-middle {
+    vertical-align: middle !important;
+}
