@@ -3,6 +3,8 @@
 import VueMetamask from 'vue-metamask';
 import axios from 'axios'
 import { ethers } from 'ethers'
+import { error } from 'console';
+// import { response } from 'express';
 
 
 export default {
@@ -42,9 +44,23 @@ export default {
 			//Send the request
 			await(this.name = publickey.slice(0, 5) + "..." + publickey.slice(-6, -1))
 			if (publickey != null) {
-				axios.post("https://forum.leet-auth.dev/", { publickey, signature }).then((response) => {
+				axios.post("https://forum.leet-auth.dev/authenticate", { publickey, signature }).then((response) => {
+					console.log("sssssssssssssssssssssssssss")
 					console.log(response.data)
 				})
+				// const request = {
+				// 		method: "POST",
+				// 		headers: {
+				// 			'Accept': '/',
+				// 			'Content-Type': 'application/json'
+				// 		},
+				// 		body: JSON.stringify({
+				// 			"publickey": publickey,
+				// 			"signature": signature,
+				// 		})
+				// 	}
+
+				// fetch("https://forum.leet-auth.dev/authenticate", request).then(res => res.json()).catch(console.error)
 			}
 			else {
 				return;
