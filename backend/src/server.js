@@ -32,19 +32,16 @@ db.mongoose
   });
 
 app.post("/add_user", async (req, res) => {
-  console.log(req.body.publickey, req.body.signature)
+  console.log(req.body.publickey,)
   const publickey = req.body.publickey;
-  const signature = req.body.signature;
 
   const existUser = await User.findOne({
     publickey,
-    signature
   });
 
   if (!existUser) {
     const user = new User({
       publickey,
-      signature
     });
     
     await user.save();
