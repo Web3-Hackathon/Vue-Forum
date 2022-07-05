@@ -1,10 +1,12 @@
-
-
 <script>
 
 import VueMetamask from 'vue-metamask';
 import axios from 'axios'
-import { ref } from "vue"
+import Vue, { ref } from "vue"
+import Web3 from "web3"
+import Web3Uitls from "web3-utils"
+import { ethers } from 'ethers'
+
 
 export default {
 	data() {
@@ -18,13 +20,33 @@ export default {
 	},
 
 	methods: {
-		connect() {
-			this.$refs.metamask.init();
+		connect: async function () {
+			const { ethereum } = window;
+			if (!ethereum) {
+				alert("Get MetaMask!");
+				return;
+			}
+
+			//Get public_key
+			const accounts = await ethereum.request({
+				method: "eth_requestAccounts",
+			});
+
+			const publickey = accounts[0]
+
+			//Get a signature
+			const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = await provider.getSigner();
+            const signature = await signer.signMessage("Please confirm your login ");
 			
-			if (window.ethereum.selectedAddress != null) {
-				axios.post("http://localhost:8082/add_user", { publickey: window.ethereum.selectedAddress }).then((response) => {
+			//wallet conenct
+			this.$refs.metamask.init();
+
+			//Send the request
+			await(this.name = publickey.slice(0, 5) + "..." + publickey.slice(-6, -1))
+			if (publickey != null) {
+				axios.post("http://localhost:8082/add_user", { publickey, signature }).then((response) => {
 					console.log(response.data)
-					this.name = window.ethereum.selectedAddress.slice(0,5) + "..."  + window.ethereum.selectedAddress.slice(-6, -1);
 				})
 			}
 			else {
