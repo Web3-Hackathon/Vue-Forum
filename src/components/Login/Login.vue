@@ -2,9 +2,6 @@
 
 import VueMetamask from 'vue-metamask';
 import axios from 'axios'
-import Vue, { ref } from "vue"
-import Web3 from "web3"
-import Web3Uitls from "web3-utils"
 import { ethers } from 'ethers'
 
 
