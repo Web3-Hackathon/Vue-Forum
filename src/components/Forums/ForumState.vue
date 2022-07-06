@@ -46,7 +46,7 @@ export default {
         align-items: center;
         flex-wrap: wrap;
         padding: 5px;
-        height:80px;
+        height:70px !important;
 
         &>.v-icon {
             padding: 0 10px;
