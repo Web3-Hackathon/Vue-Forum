@@ -3,7 +3,8 @@
     <div class="d-flex flex-row justify-space-between align-center w-100">
         <div @click="$router.push('/profile/' + $store.getters.user.username)" class="d-flex flex-row align-center link">
             <v-avatar class="avatar avatar-activator">
-                <v-img max-width="44px" max-height="44px" src="https://64.media.tumblr.com/0f1d9be0930e0fd6e1421e0af63b4baa/4b38c49aa49bf456-a5/s1280x1920/54be3df4f578d67626ed9b3849f53d129667b940.jpg" />
+                <!-- <v-img max-width="44px" max-height="44px" src="https://64.media.tumblr.com/0f1d9be0930e0fd6e1421e0af63b4baa/4b38c49aa49bf456-a5/s1280x1920/54be3df4f578d67626ed9b3849f53d129667b940.jpg" /> -->
+                <v-icon>fa-user</v-icon>
             </v-avatar>
 
             <div class="d-flex flex-column justify-center align-start mx-4">
@@ -23,7 +24,7 @@
     <div class="profile-stats">
         <div class="stat">
             <span style="color: green; font-weight: bolder;">6983</span>
-            <span>Reputation</span>
+            <span>Rep</span>
         </div>
 
         <div class="stat">
@@ -68,7 +69,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 0 20px;
+        // margin: 0 20px;
 
         span:first-of-type {
             color: #a5a5a5;
@@ -174,5 +175,12 @@ export default {
         color: yellow;
         padding: 10px
     }
+}
+
+.stat{
+    float: left;
+    padding-right: 20px;
+    padding-left: 20px;
+    border-right:1px solid rgba(83, 84, 87, 0.267) !important;
 }
 </style>

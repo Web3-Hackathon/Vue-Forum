@@ -8,7 +8,7 @@
            <v-icon size="13" class="mr-3">fa-star</v-icon><span> General</span>
         </div>
         <div class="tab select-btn" @click="$emit('tab', 2)" :class="[activeTab == 2 ? 'active' : '']">
-            <v-icon size="13" class="mr-3">fa-star</v-icon><span>Marketplace</span>
+            <v-icon size="13" class="mr-3">fa-award</v-icon><span>Marketplace</span>
         </div>
     </div>
 

@@ -18,6 +18,11 @@
             </div>
 
             <div class="profile-action mt-5" :class="$vuetify.breakpoint.mobile ? 'flex-column' : 'flex-row'">
+
+                <v-btn v-if="!self" text class="icon-btn-text btn-outlined notransform mx-2 mt-3 balance-context" rounded>
+                    192245<v-icon class="mx-2" size="16">fa-square-dollar</v-icon>
+                </v-btn>
+
                 <v-btn v-if="!self" text class="icon-btn-text btn-outlined notransform mx-2 mt-3" rounded>
                     <v-icon class="mx-2" size="16">fa-message</v-icon>Send Message
                 </v-btn>
@@ -486,4 +491,9 @@ export default {
         }
     }
 }
+
+.balance-context {
+    width: 300px;
+}
+
 </style>
