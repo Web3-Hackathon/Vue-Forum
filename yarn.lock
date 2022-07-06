@@ -6449,6 +6449,11 @@ neo-async@^2.6.2:
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+net@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/net/-/net-1.0.2.tgz#d1757ec9a7fb2371d83cf4755ce3e27e10829388"
+  integrity sha512-kbhcj2SVVR4caaVnGLJKmlk2+f+oLkjqdKeQlmUtz6nGzOpbcobwVIeSURNgraV/v3tlmGIX82OcPCl0K6RbHQ==
+
 netmask@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/netmask/-/netmask-2.0.2.tgz"
@@ -9327,7 +9332,7 @@ web3-utils@1.7.4:
     randombytes "^2.1.0"
     utf8 "3.0.0"
 
-web3@^1.5.2, web3@^1.7.4:
+web3@^1.5.2:
   version "1.7.4"
   resolved "https://registry.npmjs.org/web3/-/web3-1.7.4.tgz"
   integrity sha512-iFGK5jO32vnXM/ASaJBaI0+gVR6uHozvYdxkdhaeOCD6HIQ4iIXadbO2atVpE9oc/H8l2MovJ4LtPhG7lIBN8A==
