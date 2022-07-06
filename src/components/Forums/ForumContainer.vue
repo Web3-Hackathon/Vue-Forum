@@ -36,7 +36,7 @@ export default {
 
     span {
         padding: 3px;
-        color: #a5a5a5;
+        color: white;
     }
 }
 </style>

@@ -20,7 +20,7 @@
             <div class="profile-action mt-5" :class="$vuetify.breakpoint.mobile ? 'flex-column' : 'flex-row'">
 
                 <v-btn v-if="!self" text class="icon-btn-text btn-outlined notransform mx-2 mt-3 balance-context" rounded>
-                    192245<v-icon class="mx-2" size="16">fa-square-dollar</v-icon>
+                    <v-icon class="mx-2" size="16">fa-dollar</v-icon>192245
                 </v-btn>
 
                 <v-btn v-if="!self" text class="icon-btn-text btn-outlined notransform mx-2 mt-3" rounded>

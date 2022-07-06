@@ -2,10 +2,16 @@
   <div class="forum-section">
     <v-sheet color="sheetbg" >
       <!-- <v-icon size="28" color="#a5a5a5">{{ icon }}</v-icon> -->
-      <v-img src="../../../public/ex_1.png"  width="250" aspect-ratio="5"></v-img>
+      <!-- <v-img src="../../../public/ex_1.png"  width="250" aspect-ratio="5"></v-img> -->
+      <v-img src="../../../public/user.png" aspect-ratio="5"></v-img>
 
       <div class="cat-subcats">
-        <span>{{ section_name }}</span>
+        <!-- <span>{{ section_name }}</span> -->
+        <span>Guardians of Ukaine</span>
+        <div class="discord-twitter">
+          <span class="discord-users"><v-icon>fa-brands fa-discord</v-icon>4.9K</span>
+          <span class="twitter-users"><v-icon>fa-brands fa-twitter</v-icon>3.3K</span>
+        </div>
 
         <div class="subcats">
           <span v-for="section in section_subsections" v-bind:key="section"
@@ -61,7 +67,7 @@ export default {
     border-radius: 8px;
     height: 100px;
     padding: 0px 30px;
-    border-bottom: 0.5px solid #3d3c3c !important;
+    border: 0.5px solid #3d3c3c !important;
   }
 
   & > .v-sheet {
@@ -91,7 +97,7 @@ export default {
         span:last-of-type {
           font-family: "Source Sans Pro";
           font-size: 13px;
-          color: #909090;
+          color: white;
         }
       }
     }
@@ -105,6 +111,8 @@ export default {
       display: flex;
       flex-direction: column;
       flex-grow: 3;
+      position: relative;
+      top: 3px;
 
       .subcats {
         display: flex;
@@ -140,12 +148,13 @@ export default {
       }
 
       & > span {
-        font-size: 22px;
+        font-size: 15px;
         font-weight: 600;
         font-family: Source Sans Pro;
         color: #d5d5d5;
         cursor: pointer;
         transition: color 0.3s;
+        position: absolute;
 
         &:hover {
           color: white;
@@ -154,4 +163,47 @@ export default {
     }
   }
 }
+
+.v-image {
+  width: 10px;
+  height: 60px;
+  border-radius: 5%;
+  margin-right: 10px;
+}
+
+.discord-twitter {
+  margin-top: 30px;
+}
+
+.discord-users {
+    border: 0.5px solid #3d3c3c !important;
+    border-radius: 10%;
+    font-size: 15px;
+    font-weight: 200;
+    font-family: Source Sans Pro;
+    color: white;
+    padding: 4px;
+    margin-right: 10px;
+}
+
+.discord-users > .v-icon {
+  font-size: 10px;
+  padding-right: 10px;
+}
+
+.twitter-users {
+    border: 0.5px solid #3d3c3c !important;
+    border-radius: 10%;
+    font-size: 15px;
+    font-weight: 200;
+    font-family: Source Sans Pro;
+    color: white;
+    padding: 3px;
+}
+
+.twitter-users > .v-icon {
+  font-size: 10px;
+  padding-right: 10px;
+}
+
 </style>
