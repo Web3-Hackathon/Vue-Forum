@@ -206,4 +206,28 @@ export default {
   padding-right: 10px;
 }
 
+
+@media (max-width: 576px) {
+  .forum-section {
+    &:last-of-type > .v-sheet {
+      padding: 10px;
+      height: 200px;
+    }
+    .cat-subcats {
+      margin: 0px 20px;
+    }
+
+    & > .v-sheet {
+      .recent-post {
+        & > div {
+          padding: 0px 15px;
+        }
+      }
+    }
+  }
+  .v-image {
+    width: 60px;
+  }
+
+}
 </style>

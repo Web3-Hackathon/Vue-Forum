@@ -86,5 +86,17 @@ export default {
         margin-left: 20px;
     }
 
+    @media (max-width: 576px) {
+        .tab {
+            width: 30%;
+            i {
+                display: none;
+            }
+            span {
+                font-size: 16px;
+                margin-left: 30%;
+            }
+        }
+    }
 }
 </style>
