@@ -29,25 +29,13 @@
 
         </div>
 
-        <div id ="#connect-div" class="flex-grow-1 d-flex justify-end pa-3 align-center custom-div">
+        <div id ="connect-div" class="flex-grow-1 d-flex justify-end pa-3 align-center custom-div">
             <!-- <div class="navi-item hidden-xs-only">
                 <v-btn class="primary-btn" :ripple="false" @click="$router.push('/login')">Login</v-btn>
             </div>
             <div class="navi-item hidden-xs-only">
                 <v-btn class="primary-btn" :ripple="false" @click="$router.push('/signup')">Sign Up</v-btn>
             </div> -->
-            <Login/>
-            <div class="navi-item">
-                <v-btn icon>
-                    <v-icon size="19">fa-regular fa-message</v-icon>
-                </v-btn>
-            </div>
-
-            <div class="navi-item">
-                <v-btn icon>
-                    <v-icon size="19">fa-regular fa-bell</v-icon>
-                </v-btn>
-            </div>
 
             <div class="navi-item mx-2 phone-menu-btn">
                 <v-menu offset-y left nudge-left>
@@ -76,6 +64,20 @@
                         </div>
                     </v-list>
                 </v-menu>
+            </div>
+
+            <Login/>
+            
+            <div class="navi-item">
+                <v-btn icon>
+                    <v-icon size="19">fa-regular fa-message</v-icon>
+                </v-btn>
+            </div>
+
+            <div class="navi-item">
+                <v-btn icon>
+                    <v-icon size="19">fa-regular fa-bell</v-icon>
+                </v-btn>
             </div>
 
             <div class="navi-item mx-2">
