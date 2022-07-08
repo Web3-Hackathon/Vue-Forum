@@ -9,7 +9,7 @@
             <img src="../../public/rf.png" width="90" height ="70" />
         </div>
        
-        <div class="d-flex flex-row align-center flex-grow-1 navi-div">
+        <div id="menu-list" class="d-flex flex-row align-center flex-grow-1 navi-div">
           
             <span class="link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/')">
                 Home
@@ -37,19 +37,48 @@
                 <v-btn class="primary-btn" :ripple="false" @click="$router.push('/signup')">Sign Up</v-btn>
             </div> -->
             <Login/>
-            <div class="navi-item hidden-md-and-down">
+            <div class="navi-item">
                 <v-btn icon>
                     <v-icon size="19">fa-regular fa-message</v-icon>
                 </v-btn>
             </div>
 
-            <div class="navi-item hidden-md-and-down">
+            <div class="navi-item">
                 <v-btn icon>
                     <v-icon size="19">fa-regular fa-bell</v-icon>
                 </v-btn>
             </div>
 
-            <div class="navi-item mx-2 hidden-md-and-down">
+            <div class="navi-item mx-2 phone-menu-btn">
+                <v-menu offset-y left nudge-left>
+                    <template v-slot:activator="{ on, attrs }">
+                        <v-btn icon v-bind="attrs" v-on="on">
+                            <v-icon size="19">fa-solid fa-ellipsis-vertical</v-icon>
+                        </v-btn>
+                    </template>
+                    <v-list class="vmenu-list">
+                        <div class="vmenu-content">
+                            <span class="vmenu-item link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/')">
+                                Home
+                            </span>
+                            <span class="vmenu-item link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/members')">
+                                Members
+                            </span>
+                            <span class="vmenu-item link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/upgrade')">
+                                Upgrades
+                            </span>
+                            <span class="vmenu-item link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/new/posts')">
+                                New Posts
+                            </span>
+                            <span class="vmenu-item link text-h7 px-3 text-upper font-weight-bold" @click="$router.push('/extra')">
+                                Extra
+                            </span>
+                        </div>
+                    </v-list>
+                </v-menu>
+            </div>
+
+            <div class="navi-item mx-2">
                 <v-menu offset-y left nudge-left>
                     <template v-slot:activator="{ on, attrs }">
                         <v-avatar class="avatar avatar-activator" v-bind="attrs" v-on="on">
@@ -87,14 +116,10 @@
                 </v-menu>
             </div>
 
-            <div class="navi-item hidden-lg-and-up">
-                <v-btn icon>
-                    <v-icon size="19">fa-solid fa-ellipsis-vertical</v-icon>
-                </v-btn>
-            </div>
         </div>
     </div>
 </v-app-bar>
+
 </template>
 
 <script>
@@ -106,6 +131,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 .navi-item {
     margin: 0 2px;
 }
@@ -128,7 +155,23 @@ export default {
     margin-right: 30px;
 }
 
+.phone-menu-btn {
+    display: none;
+}
 
+@media (max-width: 820px) {
+    .logo-div {
+        display: none;
+    }
+
+    #menu-list {
+        display: none !important;
+    }
+
+    .phone-menu-btn {
+        display: table;
+    }
+}
 
 
 </style><style lang="scss" scoped>

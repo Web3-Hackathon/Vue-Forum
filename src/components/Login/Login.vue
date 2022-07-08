@@ -72,8 +72,20 @@ export default {
 </script>
 
 <template>
-	<div class="navi-item mx-8 hidden-xs-only">
+	<div class="navi-item">
 		<vue-metamask ref="metamask" :initConnect="false"></vue-metamask>
 		<v-btn class="primary-btn" @click="connect">{{ name }}</v-btn>
 	</div>
 </template>
+
+<style lang="scss">
+	@media (max-width: 820px) {
+		.primary-btn {
+			width: 60px;
+		}
+
+		.primary-btn span {
+			font-size: 5px;
+		}
+	}
+</style>
