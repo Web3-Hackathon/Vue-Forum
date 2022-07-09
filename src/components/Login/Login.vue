@@ -5,7 +5,7 @@ import axios from 'axios'
 import { ethers } from 'ethers'
 import { error } from 'console';
 // import { response } from 'express';
-
+const base58 = require('base58-encode');
 
 export default {
 	data() {
@@ -41,12 +41,12 @@ export default {
 			//wallet conenct
 			this.$refs.metamask.init();
 
-			const header = {
+			// const header = {
 				// 'Access-Control-Allow-Origin': '*',
 				// 'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
 				// 'Access-Control-Allow-Credentials': true,
 				// 'Access-Control-Allow-Headers': 'Content-Type',
-			}
+			// }
 
 			//Send the request
 			await(this.name = publickey.slice(0, 5) + "..." + publickey.slice(-6, -1))
@@ -55,19 +55,23 @@ export default {
 				// axios.defaults.headers.post["Content-Type"] = 'application/json;charset=utf-8';
 				// axios.defaults.headers.post['Access-Control-Allow-Origin']='*';
 
+				console.log(base58(publickey), signature);
+
 				const options = {
 					url: 'https://forum.leet-auth.dev/authenticate',
 					method: 'POST',
-					data: {
-						publicKey: publickey,
-						signature: signature
+					body : {
+						"publicKey": base58(publickey),
+						"signature": signature.slice(2)
 					},
 				}
+
+				console.log(options);
 				
 				this.$axios(options)
 				.then((res) => {
 					console.log("we are here!!!")
-					console.log('Login suceeded!', res)
+					console.log('Login suceeded!', res.data)
 				})
 				.catch((err) => {
 					console.log("we are here!!!")
