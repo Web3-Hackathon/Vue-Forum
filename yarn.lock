@@ -2842,6 +2842,11 @@ base-x@^3.0.2, base-x@^3.0.8:
   dependencies:
     safe-buffer "^5.0.1"
 
+base-x@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/base-x/-/base-x-4.0.0.tgz#d0e3b7753450c73f8ad2389b5c018a4af7b2224a"
+  integrity sha512-FuwxlW4H5kh37X/oW59pwTzzTKRzfrrQwhmyspRM7swOEZcHtDZSCt45U6oKgtuFE+WYPblePMVIPR4RZrh/hw==
+
 base58-encode@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/base58-encode/-/base58-encode-0.2.0.tgz#99cf5bffdfa5fa49ea8d8fd031989d2eacef9dd4"
@@ -3093,6 +3098,13 @@ bs58@^4.0.0:
   integrity sha512-Ok3Wdf5vOIlBrgCvTq96gBkJw+JUEzdBgyaza5HLtPm7yTHkjRy8+JzNyHF7BHa0bNWOQIp3m5YF0nnFcOIKLw==
   dependencies:
     base-x "^3.0.2"
+
+bs58@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/bs58/-/bs58-5.0.0.tgz#865575b4d13c09ea2a84622df6c8cbeb54ffc279"
+  integrity sha512-r+ihvQJvahgYT50JD05dyJNKlmmSlMoOGwn1lCcEzanPglg7TxYjioQUYehQ9mAR/+hOSd2jRc/Z2y5UxBymvQ==
+  dependencies:
+    base-x "^4.0.0"
 
 bs58check@^2.1.2:
   version "2.1.2"
@@ -8228,6 +8240,11 @@ socks@^2.3.3, socks@^2.6.2:
   dependencies:
     ip "^1.1.5"
     smart-buffer "^4.2.0"
+
+solana@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/solana/-/solana-1.0.4.tgz#0be660a265f8f4ac4651fd7c25973c19dd0966d3"
+  integrity sha512-ln5ym2+ehJnZ85llcn/wNBONFpE6qoIXqeaPuIt3yg0f4zhgXTUXiFHELO0wS2e+vUkSxjOi7NUCSupaOngILg==
 
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
