@@ -13,8 +13,12 @@ module.exports = defineConfig({
       }
     },
     plugins:[new NodePolyfillPlugin()],
+  },
+  devServer: {
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    proxy: 'https://forum.leet-auth.dev/',
+    // https: true,
   }
-  
   
 })
 
