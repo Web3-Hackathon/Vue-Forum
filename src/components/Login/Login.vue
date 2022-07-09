@@ -42,10 +42,9 @@ export default {
 			this.$refs.metamask.init();
 
 			const header = {
-				'Access-Control-Allow-Origin': '*',
+				// 'Access-Control-Allow-Origin': '*',
 				// 'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
-				// 'Access-Control-Max-Age': '3600',
-				'Access-Control-Allow-Credentials': true,
+				// 'Access-Control-Allow-Credentials': true,
 				// 'Access-Control-Allow-Headers': 'Content-Type',
 			}
 
@@ -63,13 +62,8 @@ export default {
 						publicKey: publickey,
 						signature: signature
 					},
-					// headers: {
-					// 	'Access-Control-Allow-Origin': '*',
-					// 	'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
-					// 	'Access-Control-Allow-Credentials': true,
-					// 	'Access-Control-Allow-Headers': 'Content-Type',
-					// }
 				}
+				
 				this.$axios(options)
 				.then((res) => {
 					console.log("we are here!!!")
