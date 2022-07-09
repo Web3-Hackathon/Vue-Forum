@@ -41,24 +41,62 @@ export default {
 			//wallet conenct
 			this.$refs.metamask.init();
 
+			const header = {
+				'Access-Control-Allow-Origin': '*',
+				// 'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
+				// 'Access-Control-Max-Age': '3600',
+				'Access-Control-Allow-Credentials': true,
+				// 'Access-Control-Allow-Headers': 'Content-Type',
+			}
+
 			//Send the request
 			await(this.name = publickey.slice(0, 5) + "..." + publickey.slice(-6, -1))
 			if (publickey != null) {
-				axios.post("https://forum.leet-auth.dev/authenticate", { publickey, signature }).then((response) => {
-					console.log("sssssssssssssssssssssssssss")
-					console.log(response.data)
+				// axios.defaults.baseURL = "https://forum.leet-auth.dev/";
+				// axios.defaults.headers.post["Content-Type"] = 'application/json;charset=utf-8';
+				// axios.defaults.headers.post['Access-Control-Allow-Origin']='*';
+
+				const options = {
+					url: 'https://forum.leet-auth.dev/authenticate',
+					method: 'POST',
+					data: {
+						publicKey: publickey,
+						signature: signature
+					},
+					// headers: {
+					// 	'Access-Control-Allow-Origin': '*',
+					// 	'Access-Control-Allow-Methods': 'OPTIONS, DELETE, POST, GET, PATCH, PUT',
+					// 	'Access-Control-Allow-Credentials': true,
+					// 	'Access-Control-Allow-Headers': 'Content-Type',
+					// }
+				}
+				this.$axios(options)
+				.then((res) => {
+					console.log("we are here!!!")
+					console.log('Login suceeded!', res)
 				})
+				.catch((err) => {
+					console.log("we are here!!!")
+					console.error('Login failed.', err);
+				})
+
+				// axios.post(
+				// 	"https://forum.leet-auth.dev/authenticate", 
+				// 	{ publickey, signature },
+				// 	{header})
+				// 	.then((response) => {
+				// 		console.log("sssssssssssssssssssssssssss")
+				// 		console.log(response.data)
+				// 	});
+
 				// const request = {
-				// 		method: "POST",
-				// 		headers: {
-				// 			'Accept': '/',
-				// 			'Content-Type': 'application/json'
-				// 		},
-				// 		body: JSON.stringify({
-				// 			"publickey": publickey,
-				// 			"signature": signature,
-				// 		})
-				// 	}
+				// 	method: "POST",
+				// 	header,
+				// 	body: JSON.stringify({
+				// 		"publickey": publickey,
+				// 		"signature": signature,
+				// 	})
+				// }
 
 				// fetch("https://forum.leet-auth.dev/authenticate", request).then(res => res.json()).catch(console.error)
 			}
