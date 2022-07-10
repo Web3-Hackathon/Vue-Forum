@@ -16,6 +16,7 @@
     "@ckeditor/ckeditor5-build-classic": "^34.1.0",
     "@ckeditor/ckeditor5-vue2": "^3.0.1",
     "@hcaptcha/vue-hcaptcha": "^0.3.2",
+    "@solana/web3.js": "^1.47.3",
     "axios": "^0.27.2",
     "base58-encode": "^0.2.0",
     "body-parser": "^1.20.0",

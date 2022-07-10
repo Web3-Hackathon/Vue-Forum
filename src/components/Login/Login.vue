@@ -4,7 +4,8 @@ import VueMetamask from 'vue-metamask';
 import axios from 'axios'
 import { ethers } from 'ethers'
 import { error } from 'console';
-import { solana } from 'solana';
+// import { solana } from 'solana';
+import { solana } from'@solana/web3.js'
 import bs58 from 'bs58';
 const base58 = require('base58-encode');
 
@@ -23,71 +24,113 @@ export default {
 	methods: {
 		async connect() {
 
-			const solWindow = window.solana;
+			// const solWindow = window.solana;
 
-			if (solWindow?.isPhantom) {
-				this.provider = solWindow
-			}
+			// if (solWindow?.isPhantom) {
+			// 	this.provider = solWindow
+			// }
 
-			if (!solWindow) {
+			// connecting to phantom
+
+			const solana = window.solana;
+
+			if (!solana) {
 				window.open("https://phantom.app/download", "_blank");
 			} else {
-				solWindow?.connect()
-					.then(res=> {
-						
-						//Get a signature
-						const encodedMessage = new TextEncoder().encode("Welcome to CryptoForum, sign this message to login!");
-						const signedMessage = window.solana.request({
-							method: "signMessage",
-							params: {
-								message: encodedMessage,
-								display: "utf8", //hex,utf8
-							},
-						});
+				await solana.connect();
 
-						signedMessage.then(res => {
-							console.log(res.publicKey);
-							console.log(res.signature);
+				// defining and encoding message
+				const message = new TextEncoder().encode("Welcome to CryptoForum, sign this message to login!");
 
-							//Send the request
-							this.name = res.publicKey.toString().slice(0, 5) + "..." + res.publicKey.toString().slice(-6, -1)
-							
-							const options = {
-								url: 'https://forum.leet-auth.dev/authenticate',
-								method: 'POST',
-								body : {
-									"publicKey": base58(res.publicKey),
-									"signature": convertToHex(res.signature)
-								},
-							}
+				// signing the message
+				const signedMessage = await solana.signMessage(message, "utf8");
 
-							console.log(options);
-							
-							this.$axios(options)
-							.then((res) => {
-								console.log("we are here!!!")
-								console.log('Login suceeded!', res.data)
-							})
-							.catch((err) => {
-								console.log("we are here!!!")
-								console.error('Login failed.', err);
-							})
-							
-						})
+				// getting the data
+				const publicKey = signedMessage.publicKey.toBase58();
+				const signature = signedMessage.signature.toString("hex");
 
-					})
-					.catch((err) => {
-						console.error("connect ERROR:", err);
-					});
-			}
-
-			function convertToHex(str) {
-				var hex = '';
-				for(var i=0;i<str.length;i++) {
-					hex += ''+str.charCodeAt(i).toString(16);
+				console.log(publicKey);
+				console.log(signature);
+				
+				const options = {
+					url: 'https://forum.leet-auth.dev/authenticate',
+					method: 'POST',
+					body : {
+						publicKey: publicKey,
+						signature: signature
+					},
 				}
-				return hex;
+
+				this.$axios(options)
+				.then((res) => {
+					console.log("we are here!!!")
+					console.log('Login suceeded!', res.data)
+				})
+				.catch((err) => {
+					console.log("we are here!!!")
+					console.error('Login failed.', err);
+				})
+
 			}
+			// after this u send them to the server
+
+			// if (!solWindow) {
+			// 	window.open("https://phantom.app/download", "_blank");
+			// } else {
+			// 	solWindow?.connect()
+			// 		.then(res=> {
+						
+			// 			//Get a signature
+			// 			const encodedMessage = new TextEncoder().encode("Welcome to CryptoForum, sign this message to login!");
+			// 			const signedMessage = window.solana.request({
+			// 				method: "signMessage",
+			// 				params: {
+			// 					message: encodedMessage,
+			// 					display: "utf8", //hex,utf8
+			// 				},
+			// 			});
+
+			// 			signedMessage.then(res => {
+			// 				const options = {
+			// 					url: 'https://forum.leet-auth.dev/authenticate',
+			// 					method: 'POST',
+			// 					body : {
+			// 						"publicKey": base58(res.publicKey),
+			// 						"signature": convertToHex(res.signature)
+			// 					},
+			// 				}
+
+			// 				function convertToHex(str) {
+			// 					var hex = '';
+			// 					for(var i=0;i<str.length;i++) {
+			// 						hex += ''+str.charCodeAt(i).toString(16);
+			// 					}
+			// 					return hex;
+			// 				}
+
+			// 				console.log(options);
+							
+			// 				this.$axios(options)
+			// 				.then((res) => {
+			// 					console.log("we are here!!!")
+			// 					console.log('Login suceeded!', res.data)
+			// 				})
+			// 				.catch((err) => {
+			// 					console.log("we are here!!!")
+			// 					console.error('Login failed.', err);
+			// 				})
+							
+			// 			})
+
+			// 			//Send the request
+			// 			this.name = res.publicKey.toString().slice(0, 5) + "..." + res.publicKey.toString().slice(-6, -1)
+
+			// 		})
+			// 		.catch((err) => {
+			// 			console.error("connect ERROR:", err);
+			// 		});
+			// }
+
 			
 			// const { ethereum } = window;
 			// if (!ethereum) {
