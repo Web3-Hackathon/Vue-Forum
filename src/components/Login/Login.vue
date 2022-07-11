@@ -2,10 +2,6 @@
 
 import VueMetamask from 'vue-metamask';
 import axios from 'axios'
-import { ethers } from 'ethers'
-import { error } from 'console';
-import bs58 from 'bs58';
-import { config } from 'process';
 const base58 = require('base58-encode');
 
 export default {
@@ -78,6 +74,9 @@ export default {
 				.then((res) => {
 					console.log("we are here!!!")
 					console.log(res.data)
+
+					//Send the request
+					this.name =signature.toString().slice(0, 5) + "..." + signature.toString().slice(-6, -1)
 				})
 				.catch((err) => {
 					console.log("we are here!!!")
@@ -134,9 +133,6 @@ export default {
 			// 				})
 							
 			// 			})
-
-			// 			//Send the request
-			// 			this.name = res.publicKey.toString().slice(0, 5) + "..." + res.publicKey.toString().slice(-6, -1)
 
 			// 		})
 			// 		.catch((err) => {
