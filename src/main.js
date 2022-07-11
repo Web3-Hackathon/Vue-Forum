@@ -3,7 +3,6 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import CKEditor from '@ckeditor/ckeditor5-vue2';
-import AxiosPlugin from 'vue-axios-cors';
 import vuetify from './plugins/vuetify'
 import "./assets/fa-font/css/all.css"
 import "./assets/scss/scss.scss"
@@ -12,7 +11,6 @@ import "./assets/scss/vuetify_missings.scss"
 Vue.config.productionTip = false  
 
 Vue.use(CKEditor)
-Vue.use(AxiosPlugin)
 
 new Vue({
   router,

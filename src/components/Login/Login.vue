@@ -2,7 +2,6 @@
 
 import VueMetamask from 'vue-metamask';
 import axios from 'axios'
-const base58 = require('base58-encode');
 
 export default {
 	data() {
@@ -44,8 +43,8 @@ export default {
 				const publicKey = signedMessage.publicKey.toBase58();
 				const signature = signedMessage.signature.toString("hex");
 
-				console.log(publicKey);
-				console.log(signature);
+				// console.log(publicKey);
+				// console.log(signature);
 				
 				
 				const options = {
@@ -73,10 +72,15 @@ export default {
 				)
 				.then((res) => {
 					console.log("we are here!!!")
-					console.log(res.data)
+					console.log("response" + res.status)
 
 					//Send the request
 					this.name =signature.toString().slice(0, 5) + "..." + signature.toString().slice(-6, -1)
+
+					//
+					this.$store.state = res.data.sessionKey;
+
+					// console.log(this.$store.state)
 				})
 				.catch((err) => {
 					console.log("we are here!!!")
